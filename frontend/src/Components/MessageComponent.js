@@ -1,4 +1,8 @@
+import { useHistory } from "react-router-dom";
+import ChatSideButton from "./ChatSideButton";
+
 function MessageComponent() {
+  const history = useHistory();
   return (
     <div className="flex h-screen w-screen">
       <div
@@ -60,7 +64,8 @@ function MessageComponent() {
         </div>
         <div className="flex relative justify-center items-center">
           <img
-            className="rounded-full shadow-md h-10"
+            className="rounded-full shadow-md h-10 hover:opacity-70 cursor-pointer"
+            onClick={() => history.push("/")}
             src="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=4268890229824877&height=50&width=50&ext=1631131169&hash=AeQFUd99yGLFVSm_rxU"
             alt=""
           />
@@ -105,18 +110,70 @@ function MessageComponent() {
             />
           </svg>
         </div>
+        <ChatSideButton />
       </div>
       <div
         style={{ flex: 0.5 }}
         className="bg-gray-100 h-full flex flex-col relative"
       >
         <div className="py-6 bg-white px-2 border border-l-0 border-r-0 border-gray-300">
-          <h2 className="select-none text-4xl font-bold">Amit RG</h2>
+          <h2 className="select-none text-4xl font-bold">Aadil Ghani</h2>
+        </div>
+        <div className="flex items-center m-2">
+          <img
+            className="h-8 w-8 rounded-full"
+            src="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=4268890229824877&height=50&width=50&ext=1631131169&hash=AeQFUd99yGLFVSm_rxU"
+            alt=""
+          />
+          <p className="text-lg px-2 py-2 bg-white w-1/3 rounded-md">
+            is it in stock right now?
+          </p>
+        </div>
+        <div className="text-sm pl-12">
+          {" "}
+          <span className="font-medium">Aadil Ghani</span>-Mar 05, 2:22 AM
+        </div>
+        <div className="flex justify-end items-center m-2">
+          <p className="text-lg px-2 py-2 bg-white w-1/3 rounded-md">
+            We've 3 left in stock!
+          </p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-9 w-9"
+            viewBox="0 0 20 20"
+            fill="gray"
+          >
+            <path
+              fillRule="evenodd"
+              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+        <div className="flex justify-end items-center m-2">
+          <p className="text-lg px-2 py-2 bg-white w-6/12 rounded-md">
+            If you order today at 8PM we can ship it today.
+          </p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-9 w-9"
+            viewBox="0 0 20 20"
+            fill="gray"
+          >
+            <path
+              fillRule="evenodd"
+              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+        <div className="flex justify-end text-sm pr-12">
+          <span className="font-medium">Amit RG</span>-Mar 05, 2:22 AM
         </div>
         <div className="w-full px-4 absolute bottom-10">
           <input
             type="text"
-            placeholder="Message Amit RG"
+            placeholder="Message Aadil Ghani"
             className="w-full border border-gray-300 rounded-md px-3 py-3 shadow-md  focus:ring focus:outline-none"
           />
         </div>
@@ -134,7 +191,7 @@ function MessageComponent() {
             />
           </div>
 
-          <h4 className="text-xl font-medium">Amit RG</h4>
+          <h4 className="text-xl font-medium">Aadil Ghani</h4>
           <div className="flex justify-center items-center text-gray-400">
             <div className="h-2 w-2 mr-2 rounded-full bg-gray-400"></div>
             <p>Offline</p>
@@ -182,15 +239,15 @@ function MessageComponent() {
           <h5 className="text-xl font-semibold mb-4">Customer details</h5>
           <div className="flex w-full justify-between items-center">
             <p className="text-md text-gray-400">Email</p>
-            <p className="text-md font-semibold">amit@richpanel.com</p>
+            <p className="text-md font-semibold">aadilghani@richpanel.com</p>
           </div>
           <div className="flex w-full justify-between items-center">
             <p className="text-md text-gray-400">First Name</p>
-            <p className="text-md font-semibold">Amit</p>
+            <p className="text-md font-semibold">Aadil</p>
           </div>
           <div className="flex w-full justify-between items-center mb-4">
             <p className="text-md text-gray-400">Last Name</p>
-            <p className="text-md font-semibold">RG</p>
+            <p className="text-md font-semibold">Ghani</p>
           </div>
           <h4 className="text-blue-500 cursor-pointer select-none font-semibold">
             View more details

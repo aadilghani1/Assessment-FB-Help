@@ -22,15 +22,13 @@ passport.use(
       profileFields: ["id", "displayName", "link", "photos", "email"],
     },
     function (accessToken, refreshToken, profile, done) {
-      console.log(profile._json);
       process.nextTick(function () {
+        console.log(profile._json);
         const jsonText = profile._json;
         User.findOne({ uid: jsonText.id }, function (err, user) {
           if (err) return done(err);
 
           if (user) {
-            console.log("user found");
-            console.log(user);
             return done(null, user);
           } else {
             var newUser = new User();
@@ -73,7 +71,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get("/facebook", passport.authenticate("facebook"));
+app.get("/facebook", passport.authenticate("facebook"), (req, res) => {
+  console.log(req.user);
+});
 app.get(
   "/facebook/callback",
   passport.authenticate("facebook", {
